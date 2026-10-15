@@ -104,7 +104,7 @@ Lessons build on each other: later scripts import functions from earlier ones.
 | | |
 |---|---|
 | **Python** | 3.12, installed automatically by `uv` (pinned in `.python-version`) |
-| **Disk** | about 3.5 GB for the two models, downloaded on first use to `~/.cache/huggingface/` |
+| **Disk** | about 3.3 GB for the two models, downloaded on first use to `~/.cache/huggingface/` |
 | **Memory** | 8 GB RAM minimum, 16 GB recommended |
 | **GPU** | optional. Apple Silicon (MPS) and NVIDIA (CUDA) are used automatically. On CPU only, everything still works, but the language model in lessons 8–9 is slower |
 
@@ -173,6 +173,25 @@ Every output, number and exercise solution in the lessons comes from actually ru
 code; nothing was written from memory. Where a run showed something unexpected, such as a
 prompt change making answers worse, that finding went into the lesson rather than being
 smoothed over.
+
+## Verification
+
+Last verified on 2026-10-15 with Python 3.12.13, PyTorch 2.14.1 and Transformers 5.19.0 on
+an Apple M2:
+
+- **Reproducibility:** a fresh clone of this repository ran all lessons without errors and
+  reproduced the outputs shown in the lessons, apart from timings, including every
+  generated answer.
+- **Facts:** statements about the outside world (model licenses, sizes and settings, library
+  behaviour and names, links) were checked against primary sources: model cards,
+  configuration files, library source code and official documentation. Six were corrected.
+- **Not checked:** the conceptual explanations, such as how attention works, why the
+  `[CLS]` token can represent a whole text, or how causal and bidirectional models differ.
+  They are standard material, but simplified, and they were written by an LLM. **They
+  should be reviewed by someone with a machine-learning background.**
+
+Found an error, or something that's outdated? Please
+[open an issue](https://github.com/ghtomcat/rag-by-hand/issues).
 
 ## License
 

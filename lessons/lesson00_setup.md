@@ -36,7 +36,8 @@ If you cloned this repository, `uv sync` has already installed everything. To cr
 same setup in an empty folder yourself, you'd run:
 
 ```bash
-uv init --python 3.12      # creates pyproject.toml, .python-version, .gitignore
+uv init --python 3.12      # creates pyproject.toml, .python-version, a git repository,
+                           # .gitignore, README.md and a placeholder main.py
 uv add torch transformers  # installs both and records them in pyproject.toml and uv.lock
 ```
 

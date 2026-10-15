@@ -11,8 +11,8 @@ built, and which techniques go beyond the course.
 | Step | In this course | Libraries |
 |---|---|---|
 | Loading | `pathlib` + `open()` (lesson 1) | [Unstructured](https://github.com/Unstructured-IO/unstructured), [Docling](https://github.com/docling-project/docling): extract text **and structure** from PDF, HTML, Word, slides |
-| Chunking | structure-aware chunker (lessons 2–3) | LangChain text splitters (`MarkdownHeaderTextSplitter`, `RecursiveCharacterTextSplitter`), LlamaIndex node parsers, [Chonkie](https://github.com/chonkie-inc/chonkie), Docling's `HybridChunker` |
-| Embedding | `AutoModel` + pooling (lesson 5) | [sentence-transformers](https://www.sbert.net/): `SentenceTransformer(name).encode(texts)` does tokenizing, pooling and normalizing in one call, using the pooling the model was trained with |
+| Chunking | structure-aware chunker (lessons 2–3) | LangChain text splitters (`MarkdownHeaderTextSplitter`, `RecursiveCharacterTextSplitter`), LlamaIndex node parsers, [Chonkie](https://github.com/feyninc/chonkie), Docling's `HybridChunker` |
+| Embedding | `AutoModel` + pooling (lesson 5) | [sentence-transformers](https://www.sbert.net/): `SentenceTransformer(name).encode(texts)` does tokenizing and pooling in one call, using the pooling the model was trained with, and normalizes if the model includes that step (BGE does) or if you pass `normalize_embeddings=True` |
 | Index and search | one tensor + `topk` (lessons 6–7) | [FAISS](https://github.com/facebookresearch/faiss) for fast (approximate) search over millions of vectors; vector databases such as Chroma, Qdrant, Weaviate or pgvector for storage, filtering and updates |
 | Generation | `AutoModelForCausalLM` (lesson 8) | [Ollama](https://ollama.com/) or [llama.cpp](https://github.com/ggml-org/llama.cpp) for fast local models (quantized, so they need less memory); hosted APIs for large models |
 | The whole pipeline | `RAG` class (lesson 9) | [LangChain](https://www.langchain.com/), [LlamaIndex](https://www.llamaindex.ai/), [Haystack](https://haystack.deepset.ai/) |

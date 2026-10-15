@@ -10,9 +10,9 @@ uv isn't installed, or your shell hasn't picked it up yet. Install it following
 new terminal.
 
 **PyTorch fails to install**
-PyTorch supports new Python versions a few months after their release. The project pins
-Python 3.12 in `.python-version`; make sure you run commands with `uv run` (which uses that
-version), not with a system `python`.
+The project pins Python 3.12 in `.python-version`, the version the lessons were tested with.
+Make sure you run commands with `uv run` (which uses that version), not with a system
+`python`. A very new Python version may not have PyTorch packages yet.
 
 **Lesson 0 shows `Device: cpu` on a Mac with Apple Silicon**
 Check that you aren't running an x86 (Intel) build of Python through Rosetta:
@@ -43,9 +43,14 @@ The two models are about 3.3 GB together. If a download is interrupted, run the 
 again: downloads resume. Models are cached in `~/.cache/huggingface/hub/`.
 
 **Not enough disk space**
-To delete a downloaded model, remove its folder, e.g.
-`~/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct`. It's downloaded again the
-next time it's needed.
+List the downloaded models and their sizes, then delete the one you don't need:
+```bash
+uv run hf cache ls
+uv run hf cache rm model/Qwen/Qwen2.5-1.5B-Instruct
+```
+Deleting the model's folder by hand isn't enough: the large files are stored in a shared
+`~/.cache/huggingface/hub/blobs/` folder, and the model folder only links to them. A deleted
+model is downloaded again the next time it's needed.
 
 ## Hardware
 
