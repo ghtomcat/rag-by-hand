@@ -19,6 +19,7 @@ from lesson03_tokens import MAX_TOKENS, OVERLAP_TOKENS, make_token_counter
 from lesson05_embed import Embedder, embedding_text
 from lesson06_index import POOLING
 from lesson07_search import search
+from lesson08_llm import ask
 from lesson09_rag import RAG, TOP_K
 
 QUESTIONS_FILE = Path(__file__).parent.parent / "eval" / "questions.jsonl"
@@ -153,6 +154,7 @@ def main():
     print(f"\n=== 4. Answers (RAG with the baseline index, top {TOP_K}) ===\n")
     rag = RAG()
     tally = Counter()
+    guessable = []
     for q, rank in zip(questions, base["ranks"]):
         answer, _, _ = rag.answer(q["question"])
         correct = grade_answer(q, answer)
@@ -166,9 +168,20 @@ def main():
         tally[kind] += 1
         print(f"  {kind:22} {q['question'][:55]}")
         print(f"  {'':22} → {answer.replace(chr(10), ' ')[:110]}")
+        if q["source"]:
+            # The same question without any context: can the model answer it on its own?
+            without, _ = ask(rag.generator, q["question"])
+            if grade_answer(q, without):
+                guessable.append((q, without))
+                print(f"  {'':22} ⚠ also passes without RAG: {without.replace(chr(10), ' ')[:85]}")
     print()
     for kind, n in sorted(tally.items()):
         print(f"  {kind:22} {n}")
+
+    n_answerable = sum(1 for q in questions if q["source"])
+    print(f"\n  {len(guessable)} of {n_answerable} answerable questions also pass without RAG:")
+    for q, _ in guessable:
+        print(f"    {q['question']}")
 
 
 if __name__ == "__main__":

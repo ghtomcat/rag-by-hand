@@ -79,11 +79,12 @@ The course uses two documents in [`data/`](data/), chosen to be as different as 
   **[OpenSim](https://github.com/ghtomcat/opensim)**, an open-source browser flight
   simulator. About 11,000 words of real technical documentation, with headings,
   tables, code blocks and lots of identifiers. It's what makes chunking hard.
-- **`kestrel-island.txt`**: a visitor's guide to a **fictional** island, written for this
-  course. About 2,000 words of plain prose without any structure.
+- **`kestrel-island.txt`**: a visitor's guide to a **fictional** island, written with an
+  LLM for this course. About 2,000 words of plain prose without any structure.
 
-Both describe things no language model has seen in training, so when an answer is correct,
-it came from retrieval. You can add your own `.txt` and `.md` files to `data/` at any time.
+Neither was in the training data of the models used here, so when an answer is correct,
+it should have come from retrieval. (Lesson 1 explains the caveats: a few facts in an
+LLM-written text can be guessed, and lesson 10 checks for that.) You can add your own `.txt` and `.md` files to `data/` at any time.
 The index is rebuilt automatically.
 
 ## Models

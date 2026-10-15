@@ -160,7 +160,8 @@ attributed to that change. Now the open questions have answers:
 ## 4. Grading the answers
 
 With `--answers`, every question goes through the full RAG pipeline from lesson 9, and the
-answer is graded automatically:
+answer is graded automatically (the run takes a few minutes, because every answerable
+question is also asked once without RAG):
 
 - **answerable question:** correct if it contains one of the `answer_keywords`;
 - **no-answer question:** correct if it refuses, i.e. contains a phrase like "doesn't say"
@@ -186,6 +187,27 @@ The failures:
 | What is the population of Port Alda? | "Port Alda is a town located approximately ten nautical miles off the mainland harbour town of Port Alda." | a trap question, answered with nonsense instead of a refusal |
 
 Both wrong answers are generation problems: retrieval delivered the right passage.
+
+### Can the model answer without RAG?
+
+A correct answer only proves that retrieval worked if the model couldn't have produced it
+anyway. So the script also asks every answerable question **without any context** and grades
+that answer the same way:
+
+```
+  0 of 27 answerable questions also pass without RAG:
+```
+
+None. The model doesn't know OpenSim's internals, and it didn't guess any island facts,
+not even the "typical" ones you might expect a model to guess, like "no cars on a small
+island" or "no hospital". (The island guide was written with an LLM, so some of its details
+could be the kind other models find plausible; see lesson 1.) Every correct answer above
+really came from retrieval.
+
+This check is cheap insurance for any test set. A question that passes without RAG doesn't
+test retrieval: replace it or mark it. Run the check again when you switch to a bigger or
+newer model. It may know more, or guess better, especially if it's the model that wrote
+the test documents.
 
 ### Where automatic grading fails
 
@@ -232,6 +254,8 @@ Keep adding questions, especially ones that failed in practice.
   answer.
 - Change one thing at a time, and compare on the same questions.
 - Retrieval metrics (recall@k, MRR) and answer quality are different things; measure both.
+- Ask the test questions without RAG too: a question the model can answer on its own
+  doesn't test retrieval.
 - Automatic grading is a tool, not the truth. Read the answers.
 
 ## Exercises

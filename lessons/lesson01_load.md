@@ -84,9 +84,21 @@ The two documents are deliberately very different:
 | Size | ~11,000 words | ~2,000 words |
 | Structure | 76 headings (14 sections, ~60 subsections), tables, code blocks, identifiers | none: only paragraphs |
 
-Neither can be known to a language model from its training: OpenSim's internals are too
-specific, and the island doesn't exist. When the system answers correctly in lesson 9, the
-answer must have come from retrieval.
+Neither was in the training data of the models used in this course: OpenSim's internals
+are too specific, and the island guide was written for this course, long after the models
+were trained. So when the system answers correctly in lesson 9, the answer should have come
+from retrieval.
+
+Two caveats:
+
+- **The island guide was written with an LLM.** A model that invents a fictional island
+  picks details that seem *plausible* to a model, and other models share many of those
+  patterns. Some facts could be **guessed** without ever seeing the guide ("no cars on a
+  small island"); others can't ("the first Sunday ferry leaves at 12:15"). Lesson 8 asks
+  the model without any context, and lesson 10 checks every test question that way, to
+  find the guessable ones.
+- **Both documents are public now.** Future models may be trained on them. With a newer
+  model, check again whether it already knows the answers.
 
 Two details in the output:
 
