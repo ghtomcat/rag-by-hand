@@ -1,0 +1,10 @@
+[project]
+name = "rag-by-hand"
+version = "0.1.0"
+description = "RAG by Hand: a step-by-step course building retrieval-augmented generation with PyTorch and Hugging Face"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "torch>=2.14.1",
+    "transformers>=5.19.0",
+]
