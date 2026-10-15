@@ -2,10 +2,11 @@
 
 Usage:
     uv run lessons/lesson09_rag.py                     # example questions, with and without RAG
-    uv run lessons/lesson09_rag.py "your question"     # one question, with RAG
+    uv run lessons/lesson09_rag.py "your question"     # one question, with and without RAG
 """
 
 import sys
+import textwrap
 import time
 
 from lesson02_chunk import Chunk
@@ -50,6 +51,12 @@ class RAG:
         return answer, results, prompt
 
 
+def print_labelled(label: str, text: str):
+    """Print text after a label, wrapped at word boundaries and indented under the label."""
+    indent = " " * 15
+    print(textwrap.fill(text, width=105, initial_indent=f"  {label:13}", subsequent_indent=indent))
+
+
 def print_rag_answer(rag: RAG, question: str):
     start = time.perf_counter()
     answer, results, prompt = rag.answer(question)
@@ -57,8 +64,8 @@ def print_rag_answer(rag: RAG, question: str):
     n_prompt_tokens = len(rag.generator.tokenizer(prompt)["input_ids"])
     print("  retrieved:")
     for n, (score, chunk) in enumerate(results, start=1):
-        print(f"    [{n}] {score:.3f}  {chunk.heading_path[-60:]}")
-    print(f"  with RAG:    {answer}")
+        print(f"    [{n}] {score:.3f}  {chunk.heading_path[-80:]}")
+    print_labelled("with RAG:", answer)
     print(f"               ({n_prompt_tokens} prompt tokens, {seconds:.1f} s)")
 
 
@@ -68,6 +75,8 @@ def main():
     if len(sys.argv) > 1:
         question = " ".join(sys.argv[1:])
         print(f"\nQ: {question}")
+        without, _ = ask(rag.generator, question)
+        print_labelled("without RAG:", without)
         print_rag_answer(rag, question)
         return
 
@@ -81,7 +90,7 @@ def main():
     for question, _ in EXAMPLES:
         print(f"\nQ: {question}")
         without, _ = ask(rag.generator, question)
-        print(f"  without RAG: {without}")
+        print_labelled("without RAG:", without)
         print_rag_answer(rag, question)
 
 

@@ -8,6 +8,46 @@ what each part does and why it's there.
 By the end, you can ask questions about your own documents and get answers from a small
 language model running on your own computer, with the passages it used.
 
+![The same small model, without and with RAG: it invents an answer from nothing, then answers correctly from the retrieved passages](assets/demo.gif)
+
+*The same 1.5B model on a laptop, asked about two documents it has never seen: first on its
+own, then with the passages that retrieval found ([lesson 9](lessons/lesson09_rag.md)).*
+
+<details>
+<summary>The output as text</summary>
+
+```
+$ uv run lessons/lesson09_rag.py "How do I run OpenSim locally?"
+
+Q: How do I run OpenSim locally?
+  without RAG: To run OpenSim locally, you need to download the source code from its GitHub repository
+               and compile it using CMake or Visual Studio. Then, start the OpenSim executable in your
+               preferred IDE or command line interface. Ensure you have all necessary dependencies
+               installed for building and running OpenSim.
+  retrieved:
+    [1] 0.735  OpenSim Architecture > 1. Directory Structure > 1.5 Not in the repository
+    [2] 0.734  OpenSim Architecture
+    [3] 0.710  OpenSim Architecture > 1. Directory Structure
+    [4] 0.702  OpenSim Architecture > 1. Directory Structure
+  with RAG:    To run OpenSim locally, serve the repo root with any static web server such as `python3 -m
+               http.server 8080` and open it in a browser.
+
+$ uv run lessons/lesson09_rag.py "Can I bring my car to Kestrel Island?"
+
+Q: Can I bring my car to Kestrel Island?
+  without RAG: Yes, you can bring your car to Kestrel Island for camping or other activities.
+  retrieved:
+    [1] 0.747  kestrel-island.txt
+    [2] 0.711  kestrel-island.txt
+    [3] 0.699  kestrel-island.txt
+    [4] 0.696  kestrel-island.txt
+  with RAG:    No, private cars are not allowed on Kestrel Island.
+```
+
+OpenSim is a static web app with no build step, and the fictional island doesn't allow
+cars. Without retrieval, the model guesses; with it, it reads.
+</details>
+
 ```mermaid
 flowchart LR
     A[Load documents] --> B[Chunk] --> C[Embed] --> D[(Index)]
@@ -102,8 +142,9 @@ changing one constant (`MODEL_NAME` in lesson 3, `LLM_NAME` in lesson 8).
 ```
 README.md
 lessons/            one .md (explanation) + one .py (code) per lesson
-eval/questions.jsonl  the test questions for lesson 10
+eval/               the test questions for lesson 10 (questions.jsonl)
 data/               the source documents
+assets/             the demo GIF and its VHS script (demo.tape)
 index/              the search index, generated in lesson 6 (not in git)
 docs/
   glossary.md       the terms used in the course

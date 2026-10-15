@@ -7,7 +7,7 @@
 > whether a bad answer is a retrieval or a generation problem.
 >
 > **Run:** `uv run lessons/lesson09_rag.py` (example questions, with and without RAG), or
-> `uv run lessons/lesson09_rag.py "your question"`
+> `uv run lessons/lesson09_rag.py "your question"` (one question, with and without RAG)
 
 ```mermaid
 flowchart LR
