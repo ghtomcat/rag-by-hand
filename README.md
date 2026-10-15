@@ -39,7 +39,7 @@ Lessons build on each other: later scripts import functions from earlier ones.
 | 7 | [Search](lessons/lesson07_search.md) | Find the chunks that match a question |
 | 8 | [A local LLM, without RAG](lessons/lesson08_llm.md) | Run a small language model and watch it make things up |
 | 9 | [RAG](lessons/lesson09_rag.md) | Combine search and LLM, and compare the answers |
-| 10 | Evaluation *(coming soon)* | Measure retrieval quality and tune the pipeline |
+| 10 | [Evaluation](lessons/lesson10_eval.md) | Measure retrieval and answers on a test set, and compare settings |
 | 11 | Reranking *(coming soon)* | Re-score the search results with a cross-encoder |
 | 12 | Packaging *(coming soon)* | Turn the lessons into a reusable package with a CLI |
 
@@ -101,6 +101,7 @@ changing one constant (`MODEL_NAME` in lesson 3, `LLM_NAME` in lesson 8).
 ```
 README.md
 lessons/            one .md (explanation) + one .py (code) per lesson
+eval/questions.jsonl  the test questions for lesson 10
 data/               the source documents
 index/              the search index, generated in lesson 6 (not in git)
 docs/

@@ -1,0 +1,31 @@
+{"question": "How do I run OpenSim locally?", "source": "architecture.md", "snippets": ["python3 -m http.server"], "answer_keywords": ["http.server"]}
+{"question": "What happens during step 5 of mission loading?", "source": "architecture.md", "snippets": ["5. derive initial conditions from the start"], "answer_keywords": ["initial conditions"]}
+{"question": "Which file decides which aircraft loads, the catalog or the mission file?", "source": "architecture.md", "snippets": ["The mission file is the source of truth"], "answer_keywords": ["mission file"]}
+{"question": "What are the crash conditions?", "source": "architecture.md", "snippets": ["vertical speed below −800 fpm"], "answer_keywords": ["800"]}
+{"question": "Does OpenSim support multiplayer?", "source": "architecture.md", "snippets": ["Multi-crew isn't wired up"], "answer_keywords": ["isn't wired", "not wired", "no state is shared", "doesn't support", "does not support"]}
+{"question": "How often does the telemetry recorder record data?", "source": "architecture.md", "snippets": ["| Telemetry | `core/telemetry.js` | 2 Hz"], "answer_keywords": ["2 Hz", "twice per second", "twice a second"]}
+{"question": "What technology draws the 3D outside view?", "source": "architecture.md", "snippets": ["**Canvas 2D for nearly everything,** including the 3D outside view"], "answer_keywords": ["canvas"]}
+{"question": "Which vehicles can use time warp?", "source": "architecture.md", "snippets": ["**Time warp exists only for rockets**", "Rockets are the only vehicles with warp"], "answer_keywords": ["rocket"]}
+{"question": "How many radio comm profiles are there?", "source": "architecture.md", "snippets": ["**12 profiles**, each historically matched"], "answer_keywords": ["12", "twelve"]}
+{"question": "What does setState do?", "source": "architecture.md", "snippets": ["`setState(patch)` is `Object.assign(S, patch)`"], "answer_keywords": ["Object.assign", "shallow"]}
+{"question": "What happens when the selected fuel tank runs empty?", "source": "architecture.md", "snippets": ["empty selected tank or shutoff → 4 s run-down → engine off"], "answer_keywords": ["run-down", "4 s", "4 seconds", "four seconds"]}
+{"question": "Do the airliner hydraulics affect the flight controls?", "source": "architecture.md", "snippets": ["**Airliner systems are a display model.**"], "answer_keywords": ["display", "no effect", "don't affect", "do not affect"]}
+{"question": "Which library draws the moving map?", "source": "architecture.md", "snippets": ["**Leaflet** (1.9.4, unpkg) for the moving map"], "answer_keywords": ["Leaflet"]}
+{"question": "What fixed time step do rockets use in time warp?", "source": "architecture.md", "snippets": ["`PHYS_DT = 1.0 s`"], "answer_keywords": ["1.0 s", "1 s", "one second", "1 second", "1.0 second"]}
+{"question": "Does the simulated Earth rotate?", "source": "architecture.md", "snippets": ["**The Earth doesn't rotate.**"], "answer_keywords": ["doesn't rotate", "does not rotate", "not rotate", "no rotation"]}
+{"question": "How many text-to-speech voices are there?", "source": "architecture.md", "snippets": ["voices: PF, PM, ATC, narrator, narrator 2"], "answer_keywords": ["five", "5"]}
+{"question": "Which aircraft uses the kinematic flight model?", "source": "architecture.md", "snippets": ["Only the `dc8` stub"], "answer_keywords": ["dc8", "DC-8"]}
+{"question": "When does the first ferry leave Port Alda on a Sunday?", "source": "kestrel-island.txt", "snippets": ["there is no morning sailing"], "answer_keywords": ["12:15"]}
+{"question": "Can I bring my car to Kestrel Island?", "source": "kestrel-island.txt", "snippets": ["Private cars are not allowed"], "answer_keywords": ["not allowed", "aren't allowed", "are not permitted"]}
+{"question": "When can visitors climb the lighthouse?", "source": "kestrel-island.txt", "snippets": ["127 steps"], "answer_keywords": ["Lantern Night"]}
+{"question": "How much does a return ferry ticket cost for an adult?", "source": "kestrel-island.txt", "snippets": ["A return ticket for an adult costs 24 crowns"], "answer_keywords": ["24"]}
+{"question": "When does the ferry not sail?", "source": "kestrel-island.txt", "snippets": ["The ferry does not sail when the wind is stronger than force 7"], "answer_keywords": ["force 7"]}
+{"question": "Where can I watch puffins?", "source": "kestrel-island.txt", "snippets": ["Puffins nest in burrows on the northern"], "answer_keywords": ["Gannet Head"]}
+{"question": "Is there a hospital on Kestrel Island?", "source": "kestrel-island.txt", "snippets": ["There is no hospital on the island."], "answer_keywords": ["no hospital", "not have a hospital", "doesn't have a hospital", "isn't a hospital", "is not a hospital"]}
+{"question": "Who designed the lighthouse?", "source": "kestrel-island.txt", "snippets": ["to a design by the engineer Ilse Marrow"], "answer_keywords": ["Marrow"]}
+{"question": "How long is the Cliff Ring walk?", "source": "kestrel-island.txt", "snippets": ["The best known walk on the island is the Cliff Ring"], "answer_keywords": ["14", "fourteen"]}
+{"question": "Can I pay by card on the ferry?", "source": "kestrel-island.txt", "snippets": ["the ticket desk on board accepts cash only"], "answer_keywords": ["cash"]}
+{"question": "Who is the author of OpenSim?", "source": null, "snippets": [], "answer_keywords": []}
+{"question": "Which license does OpenSim use?", "source": null, "snippets": [], "answer_keywords": []}
+{"question": "Who is the mayor of Kestrel Island?", "source": null, "snippets": [], "answer_keywords": []}
+{"question": "What is the population of Port Alda?", "source": null, "snippets": [], "answer_keywords": []}

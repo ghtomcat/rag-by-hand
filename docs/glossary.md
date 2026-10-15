@@ -62,8 +62,14 @@ every question and show up in many search results.
 
 **Index** *(lesson 6)*: the stored chunks and their vectors, ready to search.
 
+**LLM-as-judge** *(lesson 10)*: using a language model to grade generated answers against
+the expected ones. More flexible than keyword matching, but itself not always right.
+
 **Logits** *(lesson 8)*: a model's raw scores for every token in its vocabulary. Softmax turns
 them into probabilities.
+
+**MRR** (mean reciprocal rank) *(lesson 10)*: the average of 1 / rank of the first correct
+result over all questions: 1.0 if the right chunk is always first, 0.5 if always second.
 
 **Mean pooling** *(lesson 4)*: averaging all token vectors of a text, ignoring padding, to get
 one vector for the whole text.
@@ -88,6 +94,9 @@ queries (but not before documents).
 **RAG** (retrieval-augmented generation) *(lesson 9)*: answering a question by first
 retrieving relevant text, then letting a language model answer from that text.
 
+**Recall@k** *(lesson 10)*: the share of questions for which the right chunk is among the
+top k results.
+
 **Retrieval** *(lesson 7)*: finding the chunks most relevant to a question.
 
 **Shape** *(lesson 4)*: the size of each dimension of a tensor, e.g. `(119, 384)` for 119
@@ -104,6 +113,9 @@ should follow throughout.
 
 **Temperature** *(lesson 8)*: how random the choice of the next token is when sampling. 0
 means greedy; higher values give more varied answers.
+
+**Test set** *(lesson 10)*: a fixed list of questions with known answers, used to measure
+the system and to compare changes fairly.
 
 **Tensor** *(lesson 4)*: a multi-dimensional array of numbers of one type, stored on one
 device.

@@ -16,7 +16,7 @@ built, and which techniques go beyond the course.
 | Index and search | one tensor + `topk` (lessons 6–7) | [FAISS](https://github.com/facebookresearch/faiss) for fast (approximate) search over millions of vectors; vector databases such as Chroma, Qdrant, Weaviate or pgvector for storage, filtering and updates |
 | Generation | `AutoModelForCausalLM` (lesson 8) | [Ollama](https://ollama.com/) or [llama.cpp](https://github.com/ggml-org/llama.cpp) for fast local models (quantized, so they need less memory); hosted APIs for large models |
 | The whole pipeline | `RAG` class (lesson 9) | [LangChain](https://www.langchain.com/), [LlamaIndex](https://www.llamaindex.ai/), [Haystack](https://haystack.deepset.ai/) |
-| Evaluation | lesson 10 *(coming soon)* | [Ragas](https://docs.ragas.io/), [DeepEval](https://github.com/confident-ai/deepeval) |
+| Evaluation | test set + recall@k, MRR, keyword grading (lesson 10) | [Ragas](https://docs.ragas.io/), [DeepEval](https://github.com/confident-ai/deepeval) |
 
 When something goes wrong inside a library, you now know what it's doing underneath: what a
 chunker decides, why a chunk gets truncated, what pooling means, and why a retrieved chunk

@@ -1,6 +1,6 @@
 # Lesson 9: RAG
 
-[← Lesson 8](lesson08_llm.md) · [Overview](../README.md)
+[← Lesson 8](lesson08_llm.md) · [Overview](../README.md) · [Lesson 10 →](lesson10_eval.md)
 
 > **You'll learn:** how retrieval and generation fit together, how to write the prompt and
 > why its wording matters, how to compare answers with and without RAG, and how to tell
@@ -221,4 +221,4 @@ it.
 
 ---
 
-[← Lesson 8: A local LLM](lesson08_llm.md) · [Overview](../README.md) · Lesson 10: Evaluation *(coming soon)*
+[← Lesson 8: A local LLM](lesson08_llm.md) · [Overview](../README.md) · [Lesson 10: Evaluation →](lesson10_eval.md)
