@@ -161,6 +161,19 @@ pyproject.toml      dependencies (uv.lock pins exact versions)
 - [Troubleshooting](docs/troubleshooting.md)
 - [Going further](docs/going-further.md)
 
+## How this course was made
+
+The idea, the direction and the decisions are mine: what the course covers, the order of the
+lessons, using my own project's documentation as real-world data, adding a fictional sample to
+show why structure matters, and which findings to keep in the text. The code, the lesson texts,
+the fictional island guide and the demo were written with [Claude Code](https://claude.com/claude-code),
+working step by step under my direction.
+
+Every output, number and exercise solution in the lessons comes from actually running the
+code; nothing was written from memory. Where a run showed something unexpected, such as a
+prompt change making answers worse, that finding went into the lesson rather than being
+smoothed over.
+
 ## License
 
 - **Code** (`lessons/*.py`): [MIT](LICENSE)
